@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+
+<title>Listing 2.2</title>
+<body>
+
+<canvas id="mainCanvas" style="border:1px solid #000000; background-color: #FF0000; "> </canvas>
+<canvas id="paralelCanvas" style="border:1px solid #000000; background-color: #FF0000; "> </canvas>
+<canvas id="firstCup" style="border:1px solid #000000; background-color: #FF0000; "> </canvas>
+<canvas id="secondCup" > </canvas>
+
+<script type="text/javascript" src="jquery-2.0.3.js"></script>
+<script type="text/javascript">
+//crete main weither part
+
+		var canv = $('#mainCanvas');
+		canv.width(30);
+		canv.height(200);
+		canv.offset({top:100, left:100});
+
+		canv = $('#paralelCanvas');
+		canv.width(30);
+		canv.height(200);
+		canv.offset({top:100, left:100});
+
+		canv = $('#firstCup');
+		canv.width(30);
+		canv.height(200);
+		canv.offset({top:100, left:100});
+
+		canv = $('#secondCup');
+		canv[0].width = 80;
+		canv[0].height = 40;
+	
+//	canv.width(80);
+//	canv.height(40);
+	
+		canv.offset({top:200, left:200});
+				
+		var ctx = canv[0].getContext("2d");;
+				
+	    ctx.beginPath();
+		ctx.moveTo(0, 0);
+		ctx.lineTo(200, 0);
+		ctx.quadraticCurveTo(40, 40, 0, 0);
+		ctx.stroke();
+	
+		
+		// create first weither cup 
+		
+		
+	
+		// create second weither cup 
+		
+
+
+		// create pararlel weither cup 
+		
+		
+
+
+
+
+</script>
+</body>
+</head>
+
+</html>
