@@ -13,33 +13,34 @@ import javax.inject.Named;
 
 public class SelectorBean  implements Serializable{
 
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -2998737950114995077L;
 	private ArrayList<ICoin> coinList;
 
 
-	private String testField = "waiting for answer";
+	private String testField;
 
-	public String getTestField() {
+	public String getTestField(){
 		return testField;
 	}
 
-	public void setTestField(String testField) {
+	public void setTestField(String testField){
 		this.testField = testField;
 	}
 
 	@PostConstruct
 	public void init () {
+		testField="?";
+	}
 
+	public void generateCoinsList(){
+		orderList.clear();
+		testField="?";
 		coinList = new ArrayList<ICoin>();
 		for (int i = 0; i < 11; i++) {
 			coinList.add(new RealCoin());
 		}
 
-		int fakePosition =  (int)Math.round(Math.random()*11);
+		int fakePosition = (int)Math.round(Math.random()*11);
 		coinList.add(fakePosition, new FakeCoin());
 
 		for (int i = 0; i < coinList.size(); i++) {
@@ -50,20 +51,26 @@ public class SelectorBean  implements Serializable{
 		System.out.println("init");
 		System.out.println(fakePosition+1);
 	}
-	
-	public void findFakeCoin () {
+
+	public void findFakeCoin(){
 		orderList.clear();
 		CoinSelector coinSelector = new CoinSelector(coinList, orderList);
 		testField = coinSelector.mainExecuter(coinSelector.logicList[0]);
 	}
 	
-	 
-	private static final ArrayList<Order> orderList = new ArrayList<Order> ();
- 
-	public ArrayList<Order> getOrderList() {
- 
+	public boolean getFinderDisabled(){
+		if (orderList.size()>0)
+			return true;
+		else
+			return false;
+	}
+
+
+	private static final ArrayList<Order> orderList = new ArrayList<Order>();
+
+	public ArrayList<Order> getOrderList(){
 		return orderList;
 	}
- 
-	
+
+
 }

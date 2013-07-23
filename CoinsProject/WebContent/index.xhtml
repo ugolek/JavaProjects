@@ -9,11 +9,20 @@
 </h:head>
 <body>
 
-	
-	<h:form>
-		<h:commandButton action="#{selectorBean.findFakeCoin()}"
-			value="Find coin!" />
-	</h:form>
+		<div class="buttonHolder">
+			<h:form>
+				<h:commandButton action="#{selectorBean.generateCoinsList()}"
+					value="Generate list" />
+			</h:form>
+		</div>
+		<div class="buttonHolder">
+			<h:form>
+				<h:commandButton action="#{selectorBean.findFakeCoin()}" disabled="#{selectorBean.finderDisabled}"
+					value="Find coin!" />
+			</h:form>
+		</div>
+
+
 
 	<h:dataTable value="#{selectorBean.orderList}" var="o"
 		styleClass="order-table" headerClass="order-table-header"
@@ -37,7 +46,7 @@
     			</h:column>
 
 	</h:dataTable>
-	
+
 	<h:form>
 		<h:outputText value="fake coin is #{selectorBean.testField}" />
 	</h:form>

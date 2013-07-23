@@ -44,13 +44,11 @@ public class Order {
 		this.arrayKeys = arrayKeys;
 	}
 	
-	public String getFirstArrayString ()
-	{
+	public String getFirstArrayString () {
 		return Arrays.toString(firstCupList);
 	}
 	
-	public String getSecondArrayString ()
-	{
+	public String getSecondArrayString () {
 		return Arrays.toString(secondCupList);
 	}
 
