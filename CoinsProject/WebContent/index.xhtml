@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head></h:head>
+<body>
+
+	<h:form>
+		<h:outputText value="#{selectorBean.testField}" />
+	</h:form>
+	<h:form>
+		<h:commandButton action="#{selectorBean.findFakeCoin()}"
+			value="PUSHHH" />
+	</h:form>
+	
+	<h:dataTable value="#{selectorBean.orderList}" var="o"
+
+    			headerClass="order-table-header"
+    			rowClasses="order-table-odd-row,order-table-even-row"
+    		>
+ 
+    			<h:column>
+    				<!-- column header -->
+    				<f:facet name="header">FirstCup</f:facet>
+    				<!-- row record -->
+    				#{o.firstArrayString}
+    			</h:column>
+ 
+    			<h:column>
+    				<f:facet name="header">Mark</f:facet>
+    				#{o.weightMark}
+    			</h:column>
+ 
+    			<h:column>
+    				<f:facet name="header">SecondCup</f:facet>
+    				#{o.secondArrayString}
+    			</h:column>
+ 
+    		</h:dataTable>
+    		
+</body>
+</html>
