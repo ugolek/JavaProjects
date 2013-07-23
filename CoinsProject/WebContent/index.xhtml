@@ -4,41 +4,43 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
-<h:head></h:head>
+<h:head>
+	<h:outputStylesheet library="css" name="table-style.css" />
+</h:head>
 <body>
 
-	<h:form>
-		<h:outputText value="#{selectorBean.testField}" />
-	</h:form>
+	
 	<h:form>
 		<h:commandButton action="#{selectorBean.findFakeCoin()}"
-			value="PUSHHH" />
+			value="Find coin!" />
 	</h:form>
-	
-	<h:dataTable value="#{selectorBean.orderList}" var="o"
 
-    			headerClass="order-table-header"
-    			rowClasses="order-table-odd-row,order-table-even-row"
-    		>
- 
-    			<h:column>
-    				<!-- column header -->
-    				<f:facet name="header">FirstCup</f:facet>
-    				<!-- row record -->
+	<h:dataTable value="#{selectorBean.orderList}" var="o"
+		styleClass="order-table" headerClass="order-table-header"
+		rowClasses="order-table-row">
+
+		<h:column>
+			<!-- column header -->
+			<f:facet name="header">FirstCup</f:facet>
+			<!-- row record -->
     				#{o.firstArrayString}
     			</h:column>
- 
-    			<h:column>
-    				<f:facet name="header">Mark</f:facet>
+
+		<h:column>
+			<f:facet name="header"></f:facet>
     				#{o.weightMark}
     			</h:column>
- 
-    			<h:column>
-    				<f:facet name="header">SecondCup</f:facet>
+
+		<h:column>
+			<f:facet name="header">SecondCup</f:facet>
     				#{o.secondArrayString}
     			</h:column>
- 
-    		</h:dataTable>
-    		
+
+	</h:dataTable>
+	
+	<h:form>
+		<h:outputText value="fake coin is #{selectorBean.testField}" />
+	</h:form>
+
 </body>
 </html>
