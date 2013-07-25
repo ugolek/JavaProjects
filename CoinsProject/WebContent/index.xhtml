@@ -9,47 +9,50 @@
 </h:head>
 <body>
 
-		<div class="buttonHolder">
-			<h:form>
-				<h:commandButton action="#{selectorBean.generateCoinsList()}"
-					value="Generate list" />
-			</h:form>
-		</div>
-		<div class="buttonHolder">
-			<h:form>
-				<h:commandButton action="#{selectorBean.findFakeCoin()}" disabled="#{selectorBean.finderDisabled}"
-					value="Find coin!" />
-			</h:form>
-		</div>
+	<div class="buttonHolder">
+		<h:form>
+			<h:commandButton action="#{selectorBean.generateCoinsList()}"
+				value="Generate list">
+				<f:ajax  render="finderButton"/>
+			</h:commandButton>
+	
+	
+		
+			<h:commandButton action="#{selectorBean.findFakeCoin()}"
+				disabled="#{selectorBean.finderDisabled}" value="Find coin!" id="finderButton">
+				<f:ajax render="cheinTable" />
+				<f:ajax render="outputText" />
+				<f:ajax render="finderButton" />
+			</h:commandButton>
 
+			<h:dataTable value="#{selectorBean.orderList}" var="o"
+				id="cheinTable" styleClass="order-table"
+				headerClass="order-table-header" rowClasses="order-table-row">
 
-
-	<h:dataTable value="#{selectorBean.orderList}" var="o"
-		styleClass="order-table" headerClass="order-table-header"
-		rowClasses="order-table-row">
-
-		<h:column>
-			<!-- column header -->
-			<f:facet name="header">FirstCup</f:facet>
-			<!-- row record -->
+				<h:column>
+					<!-- column header -->
+					<f:facet name="header">FirstCup</f:facet>
+					<!-- row record -->
     				#{o.firstArrayString}
     			</h:column>
 
-		<h:column>
-			<f:facet name="header"></f:facet>
+				<h:column>
+					<f:facet name="header"></f:facet>
     				#{o.weightMark}
     			</h:column>
 
-		<h:column>
-			<f:facet name="header">SecondCup</f:facet>
+				<h:column>
+					<f:facet name="header">SecondCup</f:facet>
     				#{o.secondArrayString}
     			</h:column>
 
-	</h:dataTable>
+			</h:dataTable>
 
-	<h:form>
-		<h:outputText value="fake coin is #{selectorBean.testField}" />
-	</h:form>
+			<h:outputText value="fake coin is #{selectorBean.testField}"
+				id="outputText" />
+
+		</h:form>
+	</div>
 
 </body>
 </html>

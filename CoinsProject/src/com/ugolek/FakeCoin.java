@@ -1,5 +1,7 @@
 package com.ugolek;
 
+import java.util.ArrayList;
+
 
 public class FakeCoin implements ICoin {
 	
@@ -35,3 +37,6 @@ public class FakeCoin implements ICoin {
 	}
 
 }
+
+
+
